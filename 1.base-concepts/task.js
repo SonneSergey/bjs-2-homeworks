@@ -17,23 +17,23 @@ function solveEquation(a, b, c) {
 "use strict";
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-    percent = Number(percent);
-    contribution = Number(contribution);
-    amount = Number(amount);
-    countMonths = Number(countMonths);
+	percent = Number(percent);
+	contribution = Number(contribution);
+	amount = Number(amount);
+	countMonths = Number(countMonths);
 
-    // Проверка на валидные числовые значения
-    if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
-        return false;
-    }
+	// Проверка на валидные числовые значения
+	if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
+		return false;
+	}
 
-    const monthlyPercent = (percent / 100) / 12;
-    const mortgageBody = amount - contribution;
+	const monthlyPercent = (percent / 100) / 12;
+	const mortgageBody = amount - contribution;
 
-    const monthlyPayment = mortgageBody * 
-        (monthlyPercent + (monthlyPercent / ((Math.pow(1 + monthlyPercent, countMonths) - 1))));
-    
-    const totalAmount = monthlyPayment * countMonths;
+	const monthlyPayment = mortgageBody *
+		(monthlyPercent + (monthlyPercent / ((Math.pow(1 + monthlyPercent, countMonths) - 1))));
 
-    return Number(totalAmount.toFixed(2));
+	const totalAmount = monthlyPayment * countMonths;
+
+	return Number(totalAmount.toFixed(2));
 }
